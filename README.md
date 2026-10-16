@@ -1,3 +1,4 @@
+
 # GitHub 发布工具 (gh-web)
 
 自托管的 GitHub 管理面板。浏览器里上传源码、管理仓库、发布 Release、部署 Pages，不用命令行。
@@ -48,17 +49,9 @@
 
 ### 方式 1：docker run
 
-```bash
-mkdir -p "$(pwd)/gh-web/data" "$(pwd)/gh-web/work" && \
-docker run -d --name gh-web -p 5120:8080 \
-  -v "$(pwd)/gh-web/data":/data \
-  -v "$(pwd)/gh-web/work":/work \
-  -v "$(pwd)/gh-web":/nas \
-  -e ADMIN_PASSWORD=admin123 \
-  -e TZ=Asia/Shanghai \
-  --restart unless-stopped \
-  ghcr.io/dwtxaqgb1/gh-web:latest
-```
+    mkdir -p "$(pwd)/gh-web/data" "$(pwd)/gh-web/work"
+
+    docker run -d --name gh-web -p 5120:8080 -v "$(pwd)/gh-web/data":/data -v "$(pwd)/gh-web/work":/work -v "$(pwd)/gh-web":/nas -e ADMIN_PASSWORD=admin123 -e TZ=Asia/Shanghai --restart unless-stopped ghcr.io/dwtxaqgb1/gh-web:latest
 
 数据存在当前目录的 gh-web/ 下。
 
@@ -76,6 +69,13 @@ docker run -d --name gh-web -p 5120:8080 \
 3. 设置页：生成 GitHub Token，粘贴 Token + 填 GitHub 用户名
 4. 点「检测 Token 权限」确认
 5. 生成 SSH 密钥，复制公钥加到 GitHub
+
+## 常用命令
+
+    docker logs gh-web
+    docker restart gh-web
+    docker stop gh-web
+    docker rm -f gh-web
 
 ## 系统要求
 
