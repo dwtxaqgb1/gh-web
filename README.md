@@ -49,8 +49,7 @@
 ### 方式 1：docker run
 
     mkdir -p "$(pwd)/gh-web/data" "$(pwd)/gh-web/work" && \
-docker run -d --name gh-web -p 5120:8080 \
-  -v "$(pwd)/gh-web/data":/data \
+docker run -d --name gh-web -p 5120:8080  \ -v "$(pwd)/gh-web/data":/data \
   -v "$(pwd)/gh-web/work":/work \
   -v "$(pwd)/gh-web":/nas \
   -e ADMIN_PASSWORD=admin123 \
