@@ -47,12 +47,20 @@
 
 ## 安装
 
-### 方式 1：docker run
+# 数据目录：存 Token、SSH 密钥、密码、任务日志
+mkdir -p "$(pwd)/gh-web/data" "$(pwd)/gh-web/work"
 
-    mkdir -p "$(pwd)/gh-web/data" "$(pwd)/gh-web/work"
-
-    docker run -d --name gh-web -p 5120:8080 -v "$(pwd)/gh-web/data":/data -v "$(pwd)/gh-web/work":/work -v "$(pwd)/gh-web":/nas -e ADMIN_PASSWORD=admin123 -e TZ=Asia/Shanghai --restart unless-stopped ghcr.io/dwtxaqgb1/gh-web:latest
-
+# 启动容器
+docker run -d \
+  --name gh-web \
+  -p 5120:8080 \
+  -v "$(pwd)/gh-web/data":/data \
+  -v "$(pwd)/gh-web/work":/work \
+  -v "$(pwd)/gh-web":/nas \
+  -e ADMIN_PASSWORD=admin123 \
+  -e TZ=Asia/Shanghai \
+  --restart unless-stopped \
+  ghcr.io/dwtxaqgb1/gh-web:latest
 数据存在当前目录的 gh-web/ 下。
 
 ### 方式 2：拉源码本地构建
