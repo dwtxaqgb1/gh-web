@@ -48,7 +48,8 @@
 ### docker run安装
 
 #### 数据目录：存 Token、SSH 密钥、密码、任务日志
-```mkdir -p "$(pwd)/gh-web/data" "$(pwd)/gh-web/work"
+```
+mkdir -p "$(pwd)/gh-web/data" "$(pwd)/gh-web/work"
 ```
 
 #### 启动容器
