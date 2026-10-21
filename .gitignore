@@ -1,0 +1,21 @@
+# 环境配置（含敏感信息）
+.env
+
+# 运行时数据（Token、密钥、上传文件）
+data/
+work/
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# 系统文件
+.DS_Store
+Thumbs.db
